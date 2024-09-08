@@ -1,0 +1,24 @@
+services:
+    php:
+        build: php
+        expose:
+            - 9000
+        networks:
+          - deustocasa
+        volumes:
+            - /home/joaquiingm/deustocasa:/var/www/html
+
+    apache2:
+        image: webdevops/apache:latest
+        args:
+            - PHP_SOCKET=php:9000
+        volumes:
+            - /home/joaquiingm/deustocasa:/var/www/html
+        ports:
+            - 7780:80
+            - 7443:443
+        networks:
+          - deustocasa
+networks:
+  deustocasa:
+    driver: bridge
