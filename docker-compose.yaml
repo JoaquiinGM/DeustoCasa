@@ -1,6 +1,6 @@
 services:
   apache_server:
-    build:  /home/joaquiingm/deustocasa/
+    build:  .
     container_name: apache_github
     ports:
       - "9505:80"  # Mapear el puerto 80 del contenedor al 8080 del host
