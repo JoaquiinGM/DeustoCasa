@@ -1,8 +1,6 @@
 services:
     php:
         build: php
-        expose:
-            - 9000
         networks:
           - deustocasa
         volumes:
@@ -10,8 +8,6 @@ services:
 
     apache2:
         image: webdevops/apache:latest
-        args:
-            - PHP_SOCKET=php:9000
         volumes:
             - /home/joaquiingm/deustocasa:/var/www/html
         ports:
