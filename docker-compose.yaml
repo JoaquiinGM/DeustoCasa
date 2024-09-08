@@ -1,20 +1,11 @@
 services:
-    php:
-        build: php
-        networks:
-          - deustocasa
-        volumes:
-            - /home/joaquiingm/deustocasa:/var/www/html
-
-    apache2:
-        image: webdevops/apache:latest
-        volumes:
-            - /home/joaquiingm/deustocasa:/var/www/html
+    apache:
+        image: 'bitnami/apache:latest'
         ports:
-            - 7780:80
-            - 7443:443
-        networks:
-          - deustocasa
-networks:
-  deustocasa:
-    driver: bridge
+            - '9091:9080'
+            - '4773:453'
+        environment:
+            - APACHE_HTTP_PORT_NUMBER=9080
+            - VIRTUAL_HOST=jqn.casa
+        volumes:
+            - /home/joaquiingm/testApache/foodhut/public_html/:/app
