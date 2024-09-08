@@ -8,4 +8,4 @@ services:
             - APACHE_HTTP_PORT_NUMBER=9080
             - VIRTUAL_HOST=jqn.casa
         volumes:
-            - /home/joaquiingm/testApache/foodhut/public_html/:/app
+            - /home/joaquiingm/deustocasa:/app
