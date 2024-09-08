@@ -1,11 +1,9 @@
 services:
-    apache:
-        image: 'bitnami/apache:latest'
-        ports:
-            - '4325:9080'
-            - '3310:453'
-        environment:
-            - APACHE_HTTP_PORT_NUMBER=9080
-            - VIRTUAL_HOST=jqn.casa
-        volumes:
-            - /home/joaquiingm/deustocasa:/app
+  apache_server:
+    build:  /home/joaquiingm/deustocasa/
+    container_name: apache_github
+    ports:
+      - "9505:80"  # Mapear el puerto 80 del contenedor al 8080 del host
+    volumes:
+      - /home/joaquiingm/deustocasa/site_data:/usr/local/apache2/htdocs  # Si quieres almacenar datos localmente
+    restart: unless-stopped
