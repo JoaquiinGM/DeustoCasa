@@ -2,8 +2,8 @@ services:
     apache:
         image: 'bitnami/apache:latest'
         ports:
-            - '9091:9080'
-            - '4773:453'
+            - '4325:9080'
+            - '3310:453'
         environment:
             - APACHE_HTTP_PORT_NUMBER=9080
             - VIRTUAL_HOST=jqn.casa
