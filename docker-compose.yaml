@@ -1,7 +1,7 @@
 services:
   apache_server:
     build:      
-        context: ./path/to/context  # Especifica el directorio donde está el Dockerfile
+        context: /home/joaquiingm/deustocasa/  # Especifica el directorio donde está el Dockerfile
         dockerfile: Dockerfile  
     container_name: apache_github
     ports:
