@@ -1,11 +1,56 @@
 services:
-  apache_server:
-    container_name: apache_github
-    ports:
-      - "9505:80"  # Mapear el puerto 80 del contenedor al 8080 del host
-    volumes:
-      - /home/joaquiingm/deustocasa:/var/www/html  # Si quieres almacenar datos localmente
-    build:      
-        context: .  # Especifica el directorio donde está el Dockerfile
-        dockerfile: Dockerfile  
-    restart: unless-stopped
+    # Servicio de MySQL
+    mysql:
+      image: mysql:5.7
+      container_name: github-mysql
+      environment:
+        MYSQL_ROOT_PASSWORD: root_password
+        MYSQL_DATABASE: my_database
+        MYSQL_USER: user
+        MYSQL_PASSWORD: user_password
+      volumes:
+        - /home/joaquiingm/deustocasa/config:/var/lib/mysql
+      ports:
+        - "9535:3306"      
+      networks:
+        - my_network
+      restart: unless-stopped
+  
+    # Servicio de PHPMyAdmin
+    phpmyadmin:
+      image: phpmyadmin/phpmyadmin:4.9
+      container_name: github-phpmyadmin
+      environment:
+        PMA_HOST: mysql
+        MYSQL_ROOT_PASSWORD: root_password
+      ports:
+        - "9535:80"
+      depends_on:
+        - mysql
+      networks:
+        - my_network
+      restart: unless-stopped
+  
+    # Servicio de Apache con PHP
+    web:
+      container_name: github-php-apache
+      volumes:
+        - /home/joaquiingm/deustocasa/public_html:/var/www/html
+        - /home/joaquiingm/deustocasa/config:/config
+       # Instalar extensiones PDO y PDO_MYSQL
+      build:
+        context: .
+        dockerfile: Dockerfile
+      ports:
+        - "9505:80"
+      networks:
+        - my_network
+      depends_on:
+        - mysql
+      restart: unless-stopped
+networks:
+    my_network:
+  
+volumes:
+    db_data:
+  
