@@ -15,7 +15,7 @@ RUN git clone -b main https://github.com/JoaquiinGM/DeustoCasa.git /tmp/DeustoCa
 RUN rm -rf /var/www/html/*
 
 # Mover los archivos del repositorio al directorio de Apache
-RUN mv /tmp/DeustoCasa/* /var/www/html/
+RUN cp -r /tmp/DeustoCasa/* /var/www/html/
 
 # Limpiar archivos temporales
 #RUN rm -rf /tmp/DeustoCasa
