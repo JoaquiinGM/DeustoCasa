@@ -1,5 +1,6 @@
 services:
   apache_server:
+    container_name: apache_github
     ports:
       - "9505:80"  # Mapear el puerto 80 del contenedor al 8080 del host
     volumes:
@@ -7,5 +8,4 @@ services:
     build:      
         context: .  # Especifica el directorio donde está el Dockerfile
         dockerfile: Dockerfile  
-    container_name: apache_github
     restart: unless-stopped
