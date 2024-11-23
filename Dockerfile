@@ -5,7 +5,7 @@ FROM httpd:latest
 RUN apt-get update && apt-get install -y git
 
 # Clonar el repositorio desde GitHub en el directorio del sitio web
-RUN git clone -b main https://github.com/JoaquiinGM/DeustoCasa.git /usr/local/apache2/htdocs/
+RUN git clone -b main https://github.com/JoaquiinGM/DeustoCasa.git
 
 # Exponer el puerto 80 para Apache
 EXPOSE 80
