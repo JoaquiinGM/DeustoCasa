@@ -36,6 +36,7 @@ services:
       container_name: github-php-apache
       volumes:
         - /home/joaquiingm/deustocasa/public_html:/var/www/html
+        - /home/joaquiingm/deustocasa/tmp:/tmp/DeustoCasa
         - /home/joaquiingm/deustocasa/config:/config
        # Instalar extensiones PDO y PDO_MYSQL
       build:
