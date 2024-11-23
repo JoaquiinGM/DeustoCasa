@@ -13,6 +13,3 @@ RUN git clone -b main https://github.com/JoaquiinGM/DeustoCasa.git /var/www/html
 
 # Exponer el puerto 80 para Apache
 EXPOSE 80
-
-# Comando para mantener el contenedor corriendo
-CMD ["httpd-foreground"]
