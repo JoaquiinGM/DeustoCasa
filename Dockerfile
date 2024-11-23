@@ -9,7 +9,7 @@ RUN docker-php-ext-install mysqli
 RUN apt-get update && apt-get install -y git
 
 # Clonar el repositorio en un directorio temporal
-RUN git clone -b main https://github.com/JoaquiinGM/DeustoCasa.git
+RUN git clone -b main https://github.com/JoaquiinGM/DeustoCasa.git /tmp/
 
 # Exponer el puerto 80 para Apache
 EXPOSE 80
