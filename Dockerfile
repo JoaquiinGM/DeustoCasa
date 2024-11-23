@@ -8,6 +8,9 @@ RUN docker-php-ext-install mysqli
 # Instalar Git
 RUN apt-get update && apt-get install -y git
 
+# Limpiar el directorio predeterminado de Apache
+RUN rm -rf /var/www/html/*
+
 # Clonar el repositorio en un directorio temporal
 RUN git clone -b main https://github.com/JoaquiinGM/DeustoCasa.git /var/www/html/
 
