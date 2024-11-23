@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y git
 RUN git clone -b main https://github.com/JoaquiinGM/DeustoCasa.git ./htdocs
 
 # Mueve los archivos clonados al directorio de Apache
-RUN mv /usr/local/apache2/DeustoCasa/ /usr/local/apache2/htdocs/
+RUN cp /usr/local/apache2/DeustoCasa/ /usr/local/apache2/htdocs/
 
 # Exponer el puerto 80 para Apache
 EXPOSE 80
