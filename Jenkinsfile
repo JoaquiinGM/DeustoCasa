@@ -23,7 +23,10 @@ pipeline {
             steps {
                 echo 'Removing contents of the directory...'
                 sh '''
-                    rm -rf ${WORK_DIR}/*
+                    if [ -d "${WORK_DIR}" ]; then
+                        rm -rf ${WORK_DIR}/*
+                        rm -rf ${WORK_DIR}/.[!.]* || true # También elimina archivos ocultos
+                    fi
                 '''
             }
         }
