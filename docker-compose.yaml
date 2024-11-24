@@ -38,7 +38,7 @@ services:
         context: .
         dockerfile: Dockerfile
       ports:
-        - "9505:80"
+        - "4225:80"
       networks:
         - my_network
       depends_on:
