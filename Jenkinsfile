@@ -45,7 +45,7 @@ pipeline {
                 echo 'Running Docker Compose...'
                 sh '''
                     cd ${WORK_DIR}
-                    docker-compose up -d
+                    sudo docker-compose up -d
                 '''
             }
         }
