@@ -11,7 +11,7 @@ services:
       volumes:
         - /home/joaquiingm/deustocasa/config:/var/lib/mysql
       ports:
-        - "9535:3306"      
+        - "4925:3306"      
       networks:
         - my_network
       restart: unless-stopped
